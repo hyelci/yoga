@@ -1,6 +1,6 @@
 # Yoga Project
 
-[Try Project](yoga-hacer.netlify.app)
+[Try Project](https://yoga-hacer.netlify.app)
 
 ## Available Scripts
 
