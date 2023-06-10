@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { getYogaList } from "../features/yoga/yogaSlice";
-import { Link } from "react-router-dom";
 import { FilterRequest } from "../models/yogaList.interface";
 import { YogaItem } from "../components/YogaItem";
 
@@ -23,7 +22,7 @@ const Yoga = () => {
 
   useEffect(() => {
     dispatch(getYogaList(filter));
-  }, []);
+  }, [dispatch, filter]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name;
@@ -42,7 +41,6 @@ const Yoga = () => {
       order: sortOptions[e.target.selectedIndex].key,
     };
     setFilter(updatedFilter);
-    dispatch(getYogaList(updatedFilter));
   };
 
   return (

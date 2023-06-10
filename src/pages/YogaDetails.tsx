@@ -16,7 +16,7 @@ const YogaDetails = () => {
 
   useEffect(() => {
     dispatch(getYogaDetails(parseInt(id!)));
-  }, [id]);
+  }, [id, dispatch]);
 
   const handleDelete = async () => {
     await dispatch(deleteYoga(yogaDetails!.id));
