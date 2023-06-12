@@ -36,10 +36,10 @@ const initialState: YogaSliceType = {
 export const getYogaList = createAsyncThunk(
   "list/getList",
   async (filter: FilterRequest, thunkAPI: any) => {
-    let URL = `https://retoolapi.dev/khrpPF/yoga?q=${filter.query}&_sort=title&_order=${filter.order}`;
+    let URL = `http://localhost:8000/api/yoga?q=${filter.query}&_sort=title&_order=${filter.order}`;
     try {
       const resp = await axios.get(URL);
-      return resp.data;
+      return resp.data.data;
     } catch (error) {
       console.error("There is no list");
       throw error;
@@ -50,10 +50,10 @@ export const getYogaList = createAsyncThunk(
 export const getYogaDetails = createAsyncThunk(
   "yoga/getYogaDetails",
   async (id: number, thunkAPI: any) => {
-    let URL = `https://retoolapi.dev/khrpPF/yoga/${id}`;
+    let URL = `http://localhost:8000/api/yoga/${id}`;
     try {
       const resp = await axios.get(URL);
-      return resp.data;
+      return resp.data.data;
     } catch (error) {
       console.error("There is no yoga details");
       throw error;
@@ -64,10 +64,10 @@ export const getYogaDetails = createAsyncThunk(
 export const deleteYoga = createAsyncThunk(
   "yoga/deleteYoga",
   async (id: number, thunkAPI: any) => {
-    let URL = `https://retoolapi.dev/khrpPF/yoga/${id}`;
+    let URL = `http://localhost:8000/api/yoga/${id}`;
     try {
       const resp = await axios.delete(URL);
-      return resp.data;
+      return resp.data.data;
     } catch (error) {
       console.error("There is no yoga delete details");
       throw error;
@@ -78,10 +78,10 @@ export const deleteYoga = createAsyncThunk(
 export const createYoga = createAsyncThunk(
   "yoga/addYoga",
   async (request: CreateYogaRequest, thunkAPI: any) => {
-    let URL = `https://retoolapi.dev/khrpPF/yoga`;
+    let URL = `http://localhost:8000/api/yoga`;
     try {
       const resp = await axios.post(URL, request);
-      return resp.data;
+      return resp.data.data;
     } catch (error) {
       console.error("There is no yoga create details");
       throw error;
@@ -92,10 +92,10 @@ export const createYoga = createAsyncThunk(
 export const editYoga = createAsyncThunk(
   "yoga/editYoga",
   async (value: YogaBlog, thunkAPI: any) => {
-    let URL = `https://retoolapi.dev/khrpPF/yoga/${value.id}`;
+    let URL = `http://localhost:8000/api/yoga/${value.id}`;
     try {
       const resp = await axios.patch(URL, value);
-      return resp.data;
+      return resp.data.data;
     } catch (error) {
       console.error("There is no yoga edit details");
       throw error;
