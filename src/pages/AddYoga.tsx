@@ -5,7 +5,6 @@ import { CreateYogaRequest } from "../models/yogaList.interface";
 import { createYoga } from "../features/yoga/yogaSlice";
 import { useNavigate } from "react-router";
 
-
 const initialState: CreateYogaRequest = {
   title: "",
   details: "",
@@ -17,7 +16,6 @@ const AddYoga = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name;
     const inputValue = e.target.value;
@@ -28,8 +26,7 @@ const AddYoga = () => {
     e.preventDefault();
     if (request) {
       await dispatch(createYoga(request));
-      navigate('/yoga')
-
+      navigate("/yoga");
     }
   };
 

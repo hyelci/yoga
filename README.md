@@ -1,4 +1,4 @@
-# Yoga Project
+# Yoga Project yoga-types
 
 [Try Project](https://yoga-hacer.netlify.app)
 
